@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GetMovieService} from '../../services/get-movie.service';
-import { Response } from '@angular/Http';
+
 
 @Component({
   selector: 'app-movies',
