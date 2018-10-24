@@ -1,0 +1,11 @@
+<article class="grid-container-fluid" >
+  <header class="row">
+      <app-navigation></app-navigation>
+  </header>
+  <div class="row">
+      <h3 style="padding-left: 15px;">Trending Movies</h3>
+      <div class="col-3" *ngFor="let i of cardS">
+          <app-movie-card [card]="i"></app-movie-card>
+      </div>
+  </div>
+</article>

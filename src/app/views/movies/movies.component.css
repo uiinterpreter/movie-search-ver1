@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 /*  @import "./colors.scss"; */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 html {
     scroll-behavior: smooth;
     font-size: 100%;
@@ -115,6 +114,32 @@ body {
     .row .col-5 ~ .col-1{
         width: 100%; 
     }
+}
+@media (min-width:800px) and (max-width:1150px){
+    .col-1{ width: 33%;}
+    .col-2{ width: 50%;}
+    .col-3{ width: 50%;}
+    .col-4{ width: 50%;}
+    .col-5{ width: 100%;}
+    .col-6{ width: 100%;}
+    .col-7{ width: 100%;    }
+    .col-8{ width: 100%;    }
+    .col-9{ width: 100%;    }
+    .col-10{ width: 100%;    }
+    .col-11{ width: 100%;    }
+}
+@media (max-width:800px) and (min-width:650px){
+    .col-1{ width: 33%;}
+    .col-2{ width: 50%;}
+    .col-3{ width: 50%;}
+    .col-4{ width: 100%;}
+    .col-5{ width: 100%;}
+    .col-6{ width: 100%;}
+    .col-7{ width: 100%;    }
+    .col-8{ width: 100%;    }
+    .col-9{ width: 100%;    }
+    .col-10{ width: 100%;    }
+    .col-11{ width: 100%;    }
 }
 @media all and (max-width:650px){
     .col-1{ width: 33%;}
