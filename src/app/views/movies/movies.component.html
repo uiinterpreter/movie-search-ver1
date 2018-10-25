@@ -1,11 +1,29 @@
 <article class="grid-container-fluid" >
   <header class="row">
-      <app-navigation></app-navigation>
+      <app-navigation [clickEvent]="movieSearch"></app-navigation>
   </header>
-  <div class="row">
-      <h3 style="padding-left: 15px;">Trending Movies</h3>
-      <div class="col-3" *ngFor="let i of cardS">
-          <app-movie-card [card]="i"></app-movie-card>
+  <div class="row" *ngIf="!loader">
+      <div *ngIf="view === 'trending' && cardS.length !== 0">
+        <h3 style="padding-left: 15px;">Trending Movies from movie released after {{date}}</h3>
+        <div class="col-3" *ngFor="let i of cardS">
+            <app-movie-card [card]="i"></app-movie-card>
+        </div>
+      </div>
+      <div *ngIf="view === 'search' && cardS.length !== 0" >
+        <h4 style="padding-left: 15px;">Found {{total_count}} Results for : <i>{{searchQuery}}</i></h4>
+        <span (click)="showTrending()" class="trending" title="Show Trending"><i class="material-icons">trending_up</i></span>
+        <div class="col-3" *ngFor="let i of cardS">
+            <app-movie-card [card]="i"></app-movie-card>
+        </div>
+      </div>
+      <div class="no-results" *ngIf="cardS.length === 0">
+          <h2><i class="material-icons">error</i> No results found for "<i> {{searchQuery}} </i>"</h2>
+      </div>
+      <div class="col-12 pagination" *ngIf="total !== 1 && total !== 0">
+            <a *ngIf="pageNo !== 1" (click)="pageChange(false)">&laquo;</a>
+            <a class="page-count">{{pageNo}}</a> 
+            <a *ngIf="pageNo !== total" (click)="pageChange(true)">&raquo;</a>
       </div>
   </div>
+  <div class="loader" *ngIf="loader"></div>
 </article>

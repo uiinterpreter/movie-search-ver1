@@ -1,0 +1,62 @@
+.card {
+    margin: 20px 10% 0px 10%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80%;
+    /* border:2px solid gray; */
+    /* height: 120px; */
+}
+.card > img{
+    width:100%;
+    height: 60vh;
+    /* width: 30%;
+    height: 30%; */
+
+}
+
+
+.container {
+    padding: 2px 16px;
+}
+
+.movie-home{
+    margin: 50px 0px 0px 50px;
+}
+.Released{
+    width: 10px;
+    float: right;
+    height: 10px;
+    background-color: green;
+    margin-right: 10px;
+}
+.Post{
+    width: 10px;
+    float: right;
+    height: 10px;
+    background-color:gray;
+    margin-right: 10px;
+}
+
+.loader {
+    position: absolute;
+    top: 150px;
+    left:45%;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
