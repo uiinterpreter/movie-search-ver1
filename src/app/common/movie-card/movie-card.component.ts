@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-movie-card',
@@ -7,69 +8,19 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
   @Input() card:any;
-  constructor() { }
+  public monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+  ];
+  constructor( private route: Router,) { }
 
   ngOnInit() {
     let date = new Date(this.card.release_date);
-    let dateStr = date.getDate()+" "+this.getMonthStr(date.getMonth())+ " " +date.getFullYear(); 
+    let dateStr = date.getDate()+" "+this.monthNames[date.getMonth()]+ " " +date.getFullYear(); 
     this.card.release_date = dateStr
   }
 
-  getMonthStr(value:number){
-    switch(value) { 
-      case 0: { 
-         return 'January';
-         break; 
-      } 
-      case 1: { 
-         return 'February'
-         break; 
-      } 
-      case 2: {
-         return 'March';
-         break;    
-      } 
-      case 3: { 
-         return 'April' ;
-         break; 
-      } 
-      case 4: { 
-        return 'May' ;
-        break; 
-     }  
-     case 5: { 
-        return 'June' ;
-        break; 
-     } 
-     case 6: { 
-      return 'July' ;
-       break; 
-      } 
-    case 7: { 
-      return 'August' ;
-      break; 
-    } 
-    case 8: { 
-      return 'September' ;
-      break; 
-    } 
-    case 9:{
-      return 'October';
-      break;
-    }  
-    case 10:{
-      return 'November';
-      break;
-    }
-    case 11:{
-      return 'December';
-      break;
-    }
-      default: { 
-         return ""+value; 
-         break;              
-      } 
-   }
+  goToDetails(){
+      this.route.navigate(['details/'+this.card.id]);
   }
 
 }
