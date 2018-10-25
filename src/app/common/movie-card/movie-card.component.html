@@ -1,9 +1,10 @@
-<div class="card">
+<div class="card" (click)="goToDetails()">
   <img src="http://image.tmdb.org/t/p/w500{{card.backdrop_path}}" onError="this.src='https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg'"  alt="Poster not available... " >
   <div class="row">
-    <b style="padding:5px;"><i>{{card.original_title}}</i></b>
+    <b style="padding:5px;" title="{{card.original_title}}"><i>{{card.original_title | trimAndReduce : 35}}</i></b>
     <div class="row" style="padding-left:5px;margin: 2px;"><b>Rated:</b> {{card.vote_average}}</div> 
     <div class="row" style="padding-left:5px;margin:2px;"><b>Published On:</b> {{card.release_date}}</div>
-    <div class="row" style="margin:5px;" title="{{card.overview}}">{{card.overview | trimAndReduce}}</div>
+    <div class="row" style="margin:5px;" title="{{card.overview}}">{{card.overview | trimAndReduce:110}}</div>
   </div>
 </div>
+
