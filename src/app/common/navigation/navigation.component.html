@@ -1,10 +1,10 @@
 <article class="navbar">
-  <a href="#home" style="font-size :24px;"><b>MOVIE SEARCH APP</b></a>
+  <a href="/movies" style="font-size :24px;"><b>MOVIE SEARCH APP</b></a>
   <!-- <a href="#news">News</a>
   <a href="#contact">Contact</a> -->
   <div class="search-container">
-      <input type="text" placeholder="Search for movies.."  name="search">
+      <input type="text" placeholder="Search for movies.." (keyup)="searchMovie($event)" [(ngModel)]="searchQuery"  name="search">
       <!-- <input [(ngModel)]="searchQuery" required> -->
-      <button type="submit"><i class="material-icons" (click)="searchMovie()">search</i></button>
+      <button type="submit"><i class="material-icons" (click)="searchMovie($event)">search</i></button>
   </div>
 </article>
