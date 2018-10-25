@@ -1,29 +1,35 @@
 <article class="grid-container-fluid" >
+    <!-- navigation section -->
   <header class="row">
       <app-navigation [clickEvent]="movieSearch"></app-navigation>
   </header>
-  <div class="row" *ngIf="!loader">
+  <!-- view section for both trending and search -->
+  <div class="grid-container" *ngIf="!loader">
+      <!-- view on trending -->
       <div *ngIf="view === 'trending' && cardS.length !== 0">
         <h3 style="padding-left: 15px;">Trending Movies from movie released after {{date}}</h3>
-        <div class="col-3" *ngFor="let i of cardS">
-            <app-movie-card [card]="i"></app-movie-card>
-        </div>
       </div>
+      <!-- view on search -->
       <div *ngIf="view === 'search' && cardS.length !== 0" >
         <h4 style="padding-left: 15px;">Found {{total_count}} Results for : <i>{{searchQuery}}</i></h4>
         <span (click)="showTrending()" class="trending" title="Show Trending"><i class="material-icons">trending_up</i></span>
-        <div class="col-3" *ngFor="let i of cardS">
+      </div>
+      <!-- cards view -->
+      <div class="col-4" *ngFor="let i of cardS">
             <app-movie-card [card]="i"></app-movie-card>
         </div>
-      </div>
+        <!-- no results section -->
       <div class="no-results" *ngIf="cardS.length === 0">
           <h2><i class="material-icons">error</i> No results found for "<i> {{searchQuery}} </i>"</h2>
       </div>
-      <div class="col-12 pagination" *ngIf="total !== 1 && total !== 0">
+      <!-- pagination -->
+      <div class="col-12 pagination" *ngIf="total_count > 0">
             <a *ngIf="pageNo !== 1" (click)="pageChange(false)">&laquo;</a>
-            <a class="page-count">{{pageNo}}</a> 
+            <a class="page-count">{{pageNo}}<span> out of {{total}}</span>  </a> 
             <a *ngIf="pageNo !== total" (click)="pageChange(true)">&raquo;</a>
+            <input type="number" min="1" max="{{total}}" [(ngModel)]="desiredPage" (keyup)="gotoPage($event)"  />
       </div>
   </div>
+  <!-- loader -->
   <div class="loader" *ngIf="loader"></div>
 </article>

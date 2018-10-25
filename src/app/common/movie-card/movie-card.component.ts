@@ -14,11 +14,12 @@ export class MovieCardComponent implements OnInit {
   constructor( private route: Router,) { }
 
   ngOnInit() {
+    // to change date string
     let date = new Date(this.card.release_date);
     let dateStr = date.getDate()+" "+this.monthNames[date.getMonth()]+ " " +date.getFullYear(); 
     this.card.release_date = dateStr
   }
-
+// got to details on click
   goToDetails(){
       this.route.navigate(['details/'+this.card.id]);
   }
