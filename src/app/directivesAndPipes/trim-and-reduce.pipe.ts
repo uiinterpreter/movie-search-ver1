@@ -7,8 +7,8 @@ export class TrimAndReducePipe implements PipeTransform {
 
   transform(value: string, args?: any): any {
     // debugger;
-    if(value.length > 115){
-      return value.slice(0,100)+'...';
+    if(value.length > args ){
+      return value.slice(0,args-5)+'...';
     }else{
       return value;
     }
