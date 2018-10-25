@@ -32,7 +32,7 @@ export class MoviesComponent implements OnInit {
     let pageNo = window.sessionStorage.getItem('pageNo');
     this.view  = type || 'trending';
     this.searchQuery  = query || '';
-    this.pageNo = (this.view === 'trending') ? parseInt(pageNo) : 1;
+    this.pageNo = (type === 'trending') ? parseInt(pageNo) : 1;
     this.desiredPage = this.pageNo;
     this.getTrendingMovies(this.view);
   }
