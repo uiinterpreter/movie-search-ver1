@@ -4,7 +4,7 @@
     transition: 0.3s;
     width: 90%;
     border:2px solid gray;
-    max-height: 320px;
+    height: 320px;
     /* height: 120px; */
 }
 .card > img{
@@ -12,7 +12,7 @@
     height: 180px;
 }
 
-.card :hover {
+.card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
