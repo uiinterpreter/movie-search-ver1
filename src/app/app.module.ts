@@ -11,7 +11,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DetailsComponent } from './views/details/details.component';
 import { ErrorComponent } from './views/error/error.component';
 import { TrimAndReducePipe } from './directivesAndPipes/trim-and-reduce.pipe';
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,8 @@ import { TrimAndReducePipe } from './directivesAndPipes/trim-and-reduce.pipe';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule
-    
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
