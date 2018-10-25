@@ -8,6 +8,9 @@ import { MovieCardComponent } from './common/movie-card/movie-card.component';
 import { SearchInputComponent } from './common/search-input/search-input.component';
 import { HttpClientModule }    from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DetailsComponent } from './views/details/details.component';
+import { ErrorComponent } from './views/error/error.component';
+import { TrimAndReducePipe } from './directivesAndPipes/trim-and-reduce.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     NavigationComponent,
     MovieCardComponent,
     SearchInputComponent,
+    DetailsComponent,
+    ErrorComponent,
+    TrimAndReducePipe,
     // Http
   ],
   imports: [

@@ -1,11 +1,23 @@
 <article class="grid-container-fluid" >
   <header class="row">
-      <app-navigation></app-navigation>
+      <app-navigation [clickEvent]="movieSearch"></app-navigation>
   </header>
-  <div class="row">
-      <h3 style="padding-left: 15px;">Trending Movies</h3>
-      <div class="col-3" *ngFor="let i of cardS">
-          <app-movie-card [card]="i"></app-movie-card>
+  <div class="row" *ngIf="!loader">
+      <div *ngIf="view === 'trending'">
+            <h3 style="padding-left: 15px;">Trending Movies from movie released after {{date}}</h3>
+            <div class="col-3" *ngFor="let i of cardS">
+                <app-movie-card [card]="i"></app-movie-card>
+            </div>
+      </div>
+      <div *ngIf="view === 'search'">
+
+      </div>
+      <div class="col-12 pagination">
+            <a (click)="pageChange(false)">&laquo;</a>
+            <a >{{pageNo}}</a> 
+            <a (click)="pageChange(true)">&raquo;</a>
       </div>
   </div>
+  <div class="loader" *ngIf="loader"></div>
+  
 </article>

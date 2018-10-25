@@ -4,7 +4,12 @@
     transition: 0.3s;
     width: 90%;
     border:2px solid gray;
+    max-height: 320px;
     /* height: 120px; */
+}
+.card > img{
+    width:100%;
+    height: 180px;
 }
 
 .card :hover {
