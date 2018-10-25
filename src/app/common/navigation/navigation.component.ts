@@ -19,6 +19,8 @@ export class NavigationComponent implements OnInit {
     }
   }
   
+
+  // call back on search and event to call search on enter and click
   searchMovie(event?:any){
     try{
       if(event.keyCode === 13 || event.type == "click"){

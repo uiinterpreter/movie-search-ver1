@@ -19,6 +19,7 @@ export class GetMovieService {
     }
   }
 
+  // forming url for search trending and movie details section
   formAPIString(request:any){
     try{
       let date:any = new Date();

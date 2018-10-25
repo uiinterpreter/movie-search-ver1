@@ -20,6 +20,8 @@ export class DetailsComponent implements OnInit {
               private getMovie:GetMovieService,) { }
 
   ngOnInit() {
+
+    // getting id of a movie
     this.activated.params.subscribe(params => {
       this.movieId = params["id"];
       if(this.movieId && this.movieId !== undefined){
@@ -31,6 +33,7 @@ export class DetailsComponent implements OnInit {
 
   getMovieDetails(type:string){
     try{
+      // for ming service obj to get results from api
       this.loader = true;
       this.serviceObj = {
         method:1,

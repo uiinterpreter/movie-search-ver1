@@ -8,6 +8,7 @@ import {Router,ActivatedRoute} from '@angular/router';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
+  // variable declarations
   public serviceObj:any;
   public cardS:Array<any>= []; 
   public date:any;
@@ -17,11 +18,13 @@ export class MoviesComponent implements OnInit {
   public total:number;
   public total_count:number;
   public searchQuery:string;
+  desiredPage: number;
   constructor(private getMovie:GetMovieService,
               private  route:Router,
               private avtivated:ActivatedRoute) { }
 
   ngOnInit() {
+    // date t show trending items
     this.date = new Date();
     this.date = `${this.date.getFullYear()}-${this.date.getMonth()}-${this.date.getDate()}`;
     let type = window.sessionStorage.getItem('viewType');
@@ -29,12 +32,14 @@ export class MoviesComponent implements OnInit {
     let pageNo = window.sessionStorage.getItem('pageNo');
     this.view  = type || 'trending';
     this.searchQuery  = query || '';
-    this.pageNo = parseInt(pageNo) || 1;
+    this.pageNo = (this.view === 'trending') ? parseInt(pageNo) : 1;
+    this.desiredPage = this.pageNo;
     this.getTrendingMovies(this.view);
   }
 
   getTrendingMovies(type:string){
     try{
+      // forming service request obj
       this.loader = true;
       this.serviceObj = {
         method:1,
@@ -62,6 +67,8 @@ export class MoviesComponent implements OnInit {
     }
   }
 
+  // thisfunction is called on page change
+
   pageChange(val:boolean){
     if(val && this.pageNo < this.total){
       this.pageNo +=1;
@@ -72,19 +79,31 @@ export class MoviesComponent implements OnInit {
     }
   }
 
+  // called on coming back to trending part from search 
   showTrending(){
     this.view = 'trending';
     window.sessionStorage.setItem('searchQuery',undefined);
     this.getTrendingMovies(this.view);
   }
 
+
+  // a callback function sent to navigation page change
   movieSearch = (search:string) => {
     try{
       this.searchQuery = search;
       this.view = 'search';
+      this.pageNo = 1;
       this.getTrendingMovies(this.view);
     }catch(e){
       console.error(e);
+    }
+  }
+
+  //  a function call to go to desired page
+  gotoPage(event:any){
+    if(event.keyCode === 13 || event.type == "click"){
+      this.pageNo = this.desiredPage;
+      this.getTrendingMovies(this.view);
     }
   }
 

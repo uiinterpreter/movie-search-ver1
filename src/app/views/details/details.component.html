@@ -3,7 +3,7 @@
     <img src="http://image.tmdb.org/t/p/w500{{movieDetails.backdrop_path}}" onError="this.src='https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg'"  alt="Poster not available... " >
     <div class="row">
         <div>
-            <span><b style="padding:5px;" title="{{movieDetails.original_title}}"><i>{{movieDetails.original_title}} .</i></b></span>
+            <span><b style="padding:5px;" title="{{movieDetails.original_title}}"><i>{{movieDetails.original_title}}</i></b></span>
             <span class="{{movieDetails.status}}" title="{{movieDetails.status}}" ></span>
         </div>
         
@@ -13,10 +13,11 @@
         </div> 
         <div class="row" style="padding-left:5px;margin:2px;"><b>Published On:</b> {{movieDetails.release_date}}.</div>
         <div class="row" style="padding-left:5px;margin:2px;" *ngIf="movieDetails.homepage !== null"><b>Home Page:   </b> <a href="{{movieDetails.homepage}}" target="_blank">{{movieDetails.homepage}} .</a></div>
-        <div class="row" style="margin:5px;" title="{{movieDetails.overview}}">{{movieDetails.overview }}.</div>
+        <div class="row" style="margin:5px;" title="{{movieDetails.overview}}">{{movieDetails.overview }}</div>
 
     </div>
 </div>
+<!-- loader section -->
 <div *ngIf="loader" class="loader">
 
 </div>
