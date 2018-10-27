@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GetMovieService} from '../../services/get-movie.service';
-import {Router,ActivatedRoute} from '@angular/router';
+import {Router,ActivatedRoute, NavigationEnd} from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -21,7 +21,19 @@ export class MoviesComponent implements OnInit {
   desiredPage: number;
   constructor(private getMovie:GetMovieService,
               private  route:Router,
-              private avtivated:ActivatedRoute) { }
+              private avtivated:ActivatedRoute) {
+    this.route.events.subscribe( (val)  =>{
+        if(val instanceof NavigationEnd){
+          let query = val.url.split('=')[1];
+          if(query && query !== ''){
+            this.searchQuery = query;
+            this.view = 'search';
+            this.pageNo = 1;
+            this.getTrendingMovies(this.view);
+          }
+        }
+    });
+  }
 
   ngOnInit() {
     // date t show trending items
