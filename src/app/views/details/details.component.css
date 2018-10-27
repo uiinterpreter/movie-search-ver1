@@ -38,8 +38,9 @@
 }
 
 .loader {
-    position: absolute;
+    position: relative;
     top: 150px;
+    margin-bottom: 67vh;
     left:45%;
     border: 8px solid #f3f3f3;
     border-radius: 50%;
@@ -82,6 +83,7 @@
     .loader{
         left: 35%;
         top:200px;
+        margin-bottom: 60vh;
     }
   }
   div{

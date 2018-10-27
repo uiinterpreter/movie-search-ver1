@@ -4,7 +4,7 @@
     <b style="padding:5px;" title="{{card.original_title}}"><i>{{card.original_title | trimAndReduce : 35}}</i></b>
     <div class="row" style="padding-left:5px;margin: 2px;"><b>Rated:</b> {{card.vote_average}}</div> 
     <div class="details">
-      <div class="row" style="padding-left:5px;margin:2px;"><b>Published On:</b> {{card.release_date}}</div>
+      <div class="row" style="padding-left:5px;margin:2px;"><b>Published On:</b> {{card.release_date | date:'mediumDate'}}</div>
       <div class="row" style="margin:5px;" title="{{card.overview}}">{{card.overview | trimAndReduce:110}}</div>
     </div>
   </div>

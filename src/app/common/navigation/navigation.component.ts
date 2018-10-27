@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {FormsModule } from '@angular/forms';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -9,7 +10,19 @@ import {FormsModule } from '@angular/forms';
 export class NavigationComponent implements OnInit {
   @Input() clickEvent:any;
   public searchQuery:string='';
-  constructor() { }
+  public showSearch = true;
+  constructor(private  route:Router) {
+    this.route.events.subscribe( (val)  => {
+      if(val instanceof NavigationEnd){
+        if(val.url.indexOf('movies') !== -1){
+          this.showSearch = true;
+        }
+        else{
+          this.showSearch = false;
+        }
+      }
+  });
+  }
 
   ngOnInit() {
     let query = window.sessionStorage.getItem('searchQuery');
@@ -24,7 +37,8 @@ export class NavigationComponent implements OnInit {
   searchMovie(event?:any){
     try{
       if(event.keyCode === 13 || event.type == "click"){
-        this.clickEvent(this.searchQuery);
+        // this.clickEvent(this.searchQuery);
+        this.route.navigate(['movies'],{queryParams:{query:this.searchQuery}});
       }
     }catch(e){
       console.error(e);

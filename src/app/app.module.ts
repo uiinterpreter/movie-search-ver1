@@ -12,6 +12,9 @@ import { DetailsComponent } from './views/details/details.component';
 import { ErrorComponent } from './views/error/error.component';
 import { TrimAndReducePipe } from './directivesAndPipes/trim-and-reduce.pipe';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { ScrollTopDirective } from './directivesAndPipes/scroll-top.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +25,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     DetailsComponent,
     ErrorComponent,
     TrimAndReducePipe,
+    ScrollTopDirective,
     // Http
   ],
   imports: [
@@ -31,6 +35,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

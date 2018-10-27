@@ -1,13 +1,13 @@
 <article class="grid-container-fluid" >
     <!-- navigation section -->
   <header class="row">
-      <app-navigation [clickEvent]="movieSearch"></app-navigation>
+      <!-- <app-navigation [clickEvent]="movieSearch"></app-navigation> -->
   </header>
   <!-- view section for both trending and search -->
   <div class="grid-container" *ngIf="!loader">
       <!-- view on trending -->
       <div *ngIf="view === 'trending' && cardS.length !== 0">
-        <h3 style="padding-left: 15px;">Trending Movies from movie released after {{date}}</h3>
+        <h3 style="padding-left: 15px;">Trending Movies from movie released after {{date | date:'mediumDate'}}</h3>
       </div>
       <!-- view on search -->
       <div *ngIf="view === 'search' && cardS.length !== 0" >
