@@ -4,11 +4,10 @@
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
 }
-.mat-toolbar.mat-warn {
-    background: #54678F;
-    color: #fff;
-    height: 35px;
-    margin-top: 10px;
+.footer-div{
+    height: 30px;
+    color:  #54678F;
+    text-align: center;
 }
 .hbtn-scroll{
     position: fixed;
