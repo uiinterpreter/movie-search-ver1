@@ -7,7 +7,7 @@
   <div class="grid-container" *ngIf="!loader">
       <!-- view on trending -->
       <div *ngIf="view === 'trending' && cardS.length !== 0">
-        <h3 style="padding-left: 15px;">Trending Movies from movie released after {{date | date:'mediumDate'}}</h3>
+        <h3 style="padding-left: 15px;">Trending Movies from  {{date | date:'mediumDate'}}</h3>
       </div>
       <!-- view on search -->
       <div *ngIf="view === 'search' && cardS.length !== 0" >
@@ -19,7 +19,7 @@
             <app-movie-card [card]="i"></app-movie-card>
         </div>
         <!-- no results section -->
-      <div class="no-results" *ngIf="cardS.length === 0">
+      <div class="no-results row" *ngIf="cardS.length === 0" (click)="showTrending()">
           <h2><i class="material-icons">error</i> No results found for "<i> {{searchQuery}} </i>"</h2>
       </div>
       <!-- pagination -->

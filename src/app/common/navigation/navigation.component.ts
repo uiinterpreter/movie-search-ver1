@@ -20,6 +20,12 @@ export class NavigationComponent implements OnInit {
         else{
           this.showSearch = false;
         }
+        let query = val.url.split('=')[1];
+        if(query && query !== ''){
+          this.searchQuery = decodeURIComponent(query);
+        }else{
+          this.searchQuery = '';
+        }
       }
   });
   }
@@ -28,7 +34,7 @@ export class NavigationComponent implements OnInit {
     let query = window.sessionStorage.getItem('searchQuery');
     let type = window.sessionStorage.getItem('viewType');
     if(type && type === 'search'){
-      this.searchQuery  = query || '';
+      this.searchQuery  = decodeURIComponent(query) || '';
     }
   }
   

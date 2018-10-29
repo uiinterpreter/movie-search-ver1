@@ -25,9 +25,13 @@ export class MoviesComponent implements OnInit {
     this.route.events.subscribe( (val)  =>{
         if(val instanceof NavigationEnd){
           let query = val.url.split('=')[1];
-          if(query && query !== ''){
-            this.searchQuery = query;
+          if(query && query !== '' ){
+            this.searchQuery = decodeURIComponent(query);
             this.view = 'search';
+            this.pageNo = 1;
+            this.getTrendingMovies(this.view);
+          }else{
+            this.view = 'trending';
             this.pageNo = 1;
             this.getTrendingMovies(this.view);
           }
