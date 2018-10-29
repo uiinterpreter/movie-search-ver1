@@ -175,7 +175,7 @@ body {
     position: relative;
     top: 150px;
     margin-bottom: 67vh;
-    left:45%;
+    left:48%;
     border: 8px solid #f3f3f3;
     border-radius: 50%;
     border-top: 8px solid #3498db;
@@ -217,6 +217,7 @@ body {
     position: absolute;
     top: 80px;
     left: 35%;
+    /* margin-bottom: 300px; */
 }
 .trending{
     top: 100px;
@@ -227,9 +228,14 @@ body {
         left: 20%;
     }
     .loader{
-        left: 35%;
+        left: 42%;
         top:200px;
         margin-bottom: 60vh;
+        border: 6px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 6px solid #3498db;
+        width: 40px;
+        height: 40px;
     }
     .trending{
         top: 160px;
