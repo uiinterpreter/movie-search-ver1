@@ -11,16 +11,16 @@ export class ScrollTopDirective {
 
   onScroll() {
     let currentScroll = document.scrollingElement.scrollTop || document.body.scrollTop ;
-    if(currentScroll > 300 && window.innerWidth > 650){
+    if(currentScroll > 400 && window.innerWidth > 650){
         this.elemen.nativeElement.style.display = 'block';
-    }else if(currentScroll > 350 && window.innerWidth <= 650){
+    }else if(currentScroll > 450 && window.innerWidth <= 650){
       this.elemen.nativeElement.style.display = 'block';
     }else{
         this.elemen.nativeElement.style.display = 'none';
     }
   }
 
-  @HostListener("window:click", [])
+  @HostListener("click")
   
   onClick() {
     let scrollEl = document.scrollingElement || document.body;

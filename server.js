@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
-// var request = require('request');
- 
+
+
 const app = express();
 
 // Serve only the static files form the dist directory
@@ -12,8 +12,8 @@ app.get('/*', function(req,res) {
 res.sendFile(path.join(__dirname+'/dist/movie-search-app/index.html'));
 });
 
-// app.route('/api/movie').get((req, res) => {
-
+// app.route('/api/trending').get((req, res) => {
+   
 // });
 // app.route('/api/movies').get((req, res) => {
 
