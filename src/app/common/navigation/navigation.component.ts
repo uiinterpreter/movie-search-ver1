@@ -1,6 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {FormsModule } from '@angular/forms';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit {
   public showSearch = true;
   constructor(private  route:Router) {
     this.route.events.subscribe( (val)  => {
-      if(val instanceof NavigationEnd){
+      if(val instanceof NavigationStart){
         if(val.url.indexOf('movies') !== -1){
           this.showSearch = true;
         }
@@ -31,6 +31,7 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.showSearch = true;
     let query = window.sessionStorage.getItem('searchQuery');
     let type = window.sessionStorage.getItem('viewType');
     if(type && type === 'search'){
