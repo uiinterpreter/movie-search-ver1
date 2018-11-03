@@ -8,7 +8,9 @@ html {
 }
 
 body {
-    font-family: Segoe UI, Arial, sans-serif;
+    /* font-family: Segoe UI, Arial, sans-serif; */
+    font-family: 'Raleway', sans-serif;
+    color: gray;
     /* background-color:#9199BE; */
     width : 100%;
     margin:0px;

@@ -3,6 +3,10 @@
   <!-- input and search button -->
   <div class="search-container"*ngIf="showSearch">
       <input type="text" placeholder="Search for movies.." (keyup)="searchMovie($event)" [(ngModel)]="searchQuery"  name="search">
-      <button type="submit"><i class="material-icons" (click)="searchMovie($event)">search</i></button>
+      <button type="submit">
+        <i class="material-icons search-logo" (click)="searchMovie($event)" >
+          search
+        </i>
+      </button>
   </div>
 </article>

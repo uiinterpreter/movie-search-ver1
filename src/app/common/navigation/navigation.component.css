@@ -24,14 +24,19 @@ color: black;
 background-color: #2196F3;
 color: white;
 }
-    
+.search-logo{
+    font-size: 19px;
+    padding: 5px;
+}  
 .navbar input[type=text] {
     /* float: right; */
     padding: 6px;
     border: none;
+    outline: none;
     margin-top: 14px;
     /* margin-right: 16px; */
     font-size: 17px;
+    border-radius: 5px 0px 0px 5px;
 }
 .navbar .search-container {
     float: right;
@@ -39,13 +44,15 @@ color: white;
 
     .navbar .search-container button {
         float: right;
-        padding: 1.7px 6px;
+        padding: 1.7px 3px;
         margin-top: 14px;
         margin-right: 40px;
         background: #ddd;
         font-size: 17px;
         border: none;
         cursor: pointer;
+        outline: none;
+        border-radius: 0px 5px 5px 0px;
     }
         
     .navbar .search-container button:hover {
@@ -73,12 +80,15 @@ color: white;
     @media (max-width:650px){
         .navbar .search-container  button{
             float: right;
-            padding: 10.5px 12px;
+            padding: 5px 5px;
             margin-top: -50px;
             margin-right: -30px;
             background: #ddd;
             font-size: 17px;
             border: none;
             cursor: pointer;
+        }
+        .search-logo{
+            font-size: 30px;
         }
     }
